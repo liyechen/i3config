@@ -219,5 +219,9 @@ smart_gaps inverse_outer
 for_window [class=".*"] border pixel 1
 gaps inner 5
 
+new_window none
+new_float normal
+hide_edge_borders both
+
 exec compton -b
 exec fcitx
