@@ -187,7 +187,7 @@ bindsym $mod+r mode "resize"
 #
 
 # Personal
-exec_always --no-startup-id feh --bg-scale "/home/haduluoke/Pictures/dark_lake.jpeg"
+exec_always --no-startup-id feh --bg-scale "/home/haduluoke/Pictures/dark-blue-sky.png"
 #
 exec --no-startup-id xset s 0
 exec --no-startup-id xset dpms 2400 8000 9000
