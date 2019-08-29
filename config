@@ -195,6 +195,8 @@ exec --no-startup-id xset dpms 2400 8000 9000
 bindsym $mod+Shift+minus move scratchpad 
 bindsym $mod+minus scratchpad show 
 
+bindsym $mod+Shift+a exec gnome-screenshot -i
+
 # workspaces
 #assign [class="gnome-terminal"] $WS1
 #assign [class="Chromium"] $WS1
