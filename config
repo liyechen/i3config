@@ -206,9 +206,9 @@ bindsym $mod+Shift+a exec gnome-screenshot -i
 
 # init windows
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 1000 500
+for_window [instance="dropdown"] resize set 1100 500
 for_window [instance="dropdown"] move scratchpad
-for_window [instance="dropdown"] border pixel 4
+for_window [instance="dropdown"] border pixel 2
 exec --no-startup-id $term -n dropdown
 # exec --no-startup-id 
 
@@ -238,7 +238,7 @@ focus_follows_mouse no
 
 smart_gaps on
 smart_gaps inverse_outer
-for_window [class=".*"] border pixel 0
+for_window [instance="^(?!.*dropdown)"] border pixel 0
 gaps inner 6
 
 exec compton -o 0 -b
