@@ -12,11 +12,7 @@
 set $mod Mod4
 
 # set $term gnome-terminal
-set $term alacritty
-set $alacritty_colorscheme alacritty-colorscheme
-
-# shift color scheme
-# bindsym $mod+Shift+m exec $alacritty_colorscheme -c ~/.cofig/alacritty/alacritty.yml -C ~/alacritty-theme/themes -T
+set $term st
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,7 +27,7 @@ font pango:DejaVu Sans Mono 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -194,7 +190,7 @@ bindsym $mod+r mode "resize"
 #
 
 # Personal
-exec_always --no-startup-id feh --bg-scale "/home/haduluoke/Pictures/Wallpapers/stars_space_glow_planet_99744_1920x1080.jpg"
+exec_always --no-startup-id feh --bg-scale "/home/haduluoke/Pictures/Wallpapers/yellow-dessert.jpg"
 
 # gestures
 # exec_always --no-startup-id libinput-gestures-setup start
@@ -204,19 +200,19 @@ exec --no-startup-id xset s 0
 exec --no-startup-id xset dpms 2400 8000 9000
 
 bindsym $mod+Shift+minus move scratchpad
-# bindsym $mod+minus [instance="^(?!.*dropdown)"] scratchpad show
 bindsym $mod+minus scratchpad show
 
-bindsym $mod+Shift+a exec flameshot gui
+bindsym $mod+Shift+a exec gnome-screenshot -i
 
 # init windows
-# for_window [instance="dropdown"] floating enable
-# for_window [instance="dropdown"] resize set 1100 500
-# for_window [instance="dropdown"] move scratchpad
-# for_window [instance="dropdown"] border pixel 2
-# exec --no-startup-id $term -n dropdown
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 1100 500
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 2
+exec --no-startup-id $term -n dropdown
+# exec --no-startup-id 
 
-# bindsym $mod+plus [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+bindsym $mod+plus [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # workspaces
 #assign [class="gnome-terminal"] $WS1
@@ -226,18 +222,18 @@ bindsym $mod+Shift+a exec flameshot gui
 set $mode_system  lock(L) logout(O) reboot(R) shutdown(S) exit(Esc)
 bindsym $mod+c mode "$mode_system"
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3lock-fancy -gpf Fira-Code-Medium -t "This computer will explode in 5 minutes.", mode "default"
+    bindsym l exec --no-startup-id i3lock -c '#000000', mode "default"
     bindsym o exec --no-startup-id i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff, mode "default"
     bindsym Escape mode "default"
 }
 
-# class                 border  bground  text    indicator child_border
-client.focused #fed766  #fed766 #ffffff  #fed766 #fed766
-client.urgent           #ffffff #900000  #ffffff #ff69b4   #900000
-client.placeholder      #000000 #0c0c0c  #ffffff #000000   #0c0c0c
-client.background       #000000
+# class                 border  bground text    indicator child_border
+# client.focused #fed766 #fed766 #ffffff #fed766 #fed766
+# client.urgent           #ffffff #900000 #ffffff #ff69b4   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# client.background       #000000
 
 focus_follows_mouse no
 
