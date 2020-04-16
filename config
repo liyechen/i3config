@@ -194,6 +194,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
        status_command i3status
+       colors {
+           background #282828
+           separator #666666
+           statusline #A4E2DC
+           focused_workspace  #A4E2DC  #A4E2DC     #1F2D3A
+           inactive_workspace #1F2D3A  #1F2D3A     #A4E2DC
+       }
 }
 #
 
@@ -213,14 +220,14 @@ bindsym $mod+minus scratchpad show
 
 bindsym $mod+Shift+a exec flameshot gui
 
-# init windows
+# # init windows
 # for_window [instance="dropdown"] floating enable
-# for_window [instance="dropdown"] resize set 1100 500
 # for_window [instance="dropdown"] move scratchpad
 # for_window [instance="dropdown"] border pixel 2
-# exec --no-startup-id $term -n dropdown
+# for_window [instance="dropdown"] resize set 1100 500
+# exec --no-startup-id $term --class dropdown
 
-# bindsym $mod+plus [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+# bindsym $mod+p [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # workspaces
 #assign [class="gnome-terminal"] $WS1
@@ -250,5 +257,5 @@ smart_gaps inverse_outer
 for_window [instance="^(?!.*dropdown)"] border pixel 0
 gaps inner 0
 
-exec compton -o 0 -b --config ~/.config/compton/compton.conf
+exec picom -o 0 -b --config ~/.config/picom/picom.conf
 exec fcitx
